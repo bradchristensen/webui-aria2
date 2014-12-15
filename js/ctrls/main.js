@@ -81,9 +81,9 @@ function(
 		// HACK to make sure an angular digest is not running, as only one can happen at a time, and confirm is a blocking
 		// call so an rpc response can also trigger a digest call
 		setTimeout(function() {
-			if (!noConfirm && !confirm("Remove %s and associated meta-data?".replace("%s", d.name))) {
-				return;
-			}
+			// if (!noConfirm && !confirm("Remove %s and associated meta-data?".replace("%s", d.name))) {
+			// 	return;
+			// }
 
 			var method = 'remove';
 
