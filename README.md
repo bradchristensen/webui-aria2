@@ -23,9 +23,33 @@ Configuration
 =============
 Read and edit [configuration.js](configuration.js).
 
+DirectURL
+---------
+This feature allows users to download files that they download from aria2 directly from the webui dashboard. If you are familiar with how webservers work, setup a http server that points at the configured aria2 download directory, check permissions. Then Specify a full url: ```http://server:port/``` in the webui directURL configuration.
+
+If the above is not obvious, keep reading what this is about in [directurl.md](directurl.md)
+
 Dependencies
 ============
 Well, you need aria2. And a web browser (if that even counts!)
+
+Docker support
+==============
+You can also try or use webui-aria2 in your LAN inside a Docker sandbox.
+
+Build the image
+
+````bash
+sudo docker build -t yourname/webui-aria2 .
+````
+
+..and run it! It will be available at: `http://localhost:9100`
+
+````bash
+sudo docker run -v /Downloads:/data -p 6800:6800 -p 9100:8080 --name="webui-aria2" yourname/webui-aria2
+````
+
+`/Downloads` is the directory in the host where you want to keep the downloaded files
 
 Support
 =======
